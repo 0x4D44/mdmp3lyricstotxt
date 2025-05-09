@@ -1,6 +1,29 @@
 [package]
-name = "mdmp3lyricstotxt"
+name = "mdmp3lyrics2txt"
 version = "0.1.0"
 edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+description = "A tool that extracts lyrics from MP3 files and concatenates them into a text file"
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/yourusername/mdmp3lyrics2txt"
+keywords = ["mp3", "lyrics", "extraction", "music", "id3"]
+categories = ["command-line-utilities"]
 
 [dependencies]
+id3 = "1.16.2"
+clap = { version = "4.4", features = ["derive"] }
+walkdir = "2.4"
+anyhow = "1.0"
+log = "0.4"
+env_logger = "0.10"
+
+[dev-dependencies]
+tempfile = "3.8"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
